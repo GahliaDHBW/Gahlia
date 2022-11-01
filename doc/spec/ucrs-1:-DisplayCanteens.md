@@ -17,7 +17,7 @@ This Use-Case-Realization Specification shows how the list of cantiens is fetche
 
 ### 1.2 Scope
 
-In the Activity-Diagram first use-case(Show the cannteens names) ist associated with this Use-Case-Realization-Specification.
+In the Activity-Diagram first use-case(Show the cannteens names) is associated with this Use-Case-Realization-Specification.
 
 ### 1.3 Definitions, Acronyms and Abbreviations
 | Abbrevation | Explanation                            |
