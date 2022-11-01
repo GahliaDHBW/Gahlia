@@ -32,9 +32,10 @@ In the Activity-Diagram first use-case(Show the cannteens names) ist associated 
 
 n/a
 
+
 ## 2. Flow of Events
 
-![show Canttens](./diagrams/rendered/sequence-displaycanteens.png?raw=true "sequenceDiagram-displaycanteens")
+![sequence-displaycanteens](https://user-images.githubusercontent.com/43212219/199329016-0c102560-d226-4e63-b6d3-b3f667f0e95d.png)
 
 As shown in the sequence diagram, the user first opens the Gahlia application, then he can click on the hamburger menu, after that he has the option to see the canteen list. As soon as the user clicks on the list of canteens, the application in the background fetches the list from the canteen website and displays it.
 
