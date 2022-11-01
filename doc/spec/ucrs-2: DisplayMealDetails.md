@@ -17,7 +17,7 @@ This use case realization specification describes, how the implementation of the
 
 ### 1.2 Scope
 
-The Activity-Diagram [show meal details](https://github.com/GahliaDHBW/Gahlia/blob/57863081d82ab15ced71f10216defe2f0af5ad81/doc/diagrams/rendered/activity-showmealdetails.png) ist associated with this UCRS.
+The Activity-Diagram [show meal details](https://github.com/GahliaDHBW/Gahlia/blob/57863081d82ab15ced71f10216defe2f0af5ad81/doc/diagrams/rendered/activity-showmealdetails.png) is associated with this UCRS.
 
 ### 1.3 Definitions, Acronyms and Abbreviations
 | Abbrevation | Explanation                            |
