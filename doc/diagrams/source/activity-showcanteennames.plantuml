@@ -1,0 +1,10 @@
+@startuml
+Title "show the canteen names"
+start
+:Open the App;
+:Click on the Hamburger Menu;
+:Show the canteen names;
+stop
+@enduml
+
+

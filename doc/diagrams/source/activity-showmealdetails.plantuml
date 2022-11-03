@@ -1,0 +1,16 @@
+@startuml
+Title "Show the meal details"
+start
+:Open the App;
+:Click on the Hamburger Menu;
+:Click on the canteen button;
+:Select preffered canteen;
+:Click on the meal item;
+:Show the meal details;
+floating note left
+  uses stored meal details
+end note
+stop
+@enduml
+
+

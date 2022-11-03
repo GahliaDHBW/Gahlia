@@ -1,0 +1,59 @@
+@startuml
+Title "OCP monolith design"
+class	monolith { 
+ - main-mode : enum
+
+ - side-menu : container
+ - side-menu-canteen-list : container
+ - side-menu-canteen[] : button[]
+ - side-menu-maps : button
+ - side-menu-visible : boolean
+ - top-bar : container
+ - hamburger-menu : button
+ - hamburger-menu-icon : image
+
+ - weekday-button[] : button[]
+ - weekday-menu : container
+ - meal-list : container
+ - meal-item[] : button[]
+ - meal-details : image
+ - diet-hint-icon[] : image[]
+ - landing-page : image
+
+ + call-maps()
+ + gen-meal-details()
+ + gen-meal-items(weekday: Integer, mensa-id: Integer) : button[]
+ + refresh-frame() : void
+}
+class	scrapercache {
+  - mensa-urls[] : String[]
+  - dirtbag : struct
+  - parsed : struct
+  - cachepath : String
+
+  - validate-cache(weekday: Integer, mensa-id: Integer) : boolean
+  - read-cache(weekday: Integer, mensa-id: Integer) : boolean
+  - write-cache() : boolean
+  - pullparse(mensa-id) : void
+  + gimme-data(weekday: Integer, mensa-id: Integer) : struct
+
+}
+class	"gmaps driver" {
+ - auth-token : String
+ - location-id-mensa[] : String[]
+ - gmap-api-endpoint : String
+
+ + route-to-mensa(id: Integer) : void
+ + show-mensa-location(id: Integer) : void
+}
+enum "main mode" {
+  LANDING
+  LIST
+  DETAILS
+  MAPS
+}
+monolith <.. "main mode"
+monolith <.. "gmaps driver"
+monolith <.. scrapercache
+@enduml
+
