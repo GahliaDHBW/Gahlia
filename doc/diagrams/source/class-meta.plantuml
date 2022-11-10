@@ -1,31 +1,61 @@
 @startuml
-Title "OCP monolith design"
-class	monolith { 
- - main-mode : enum
-
- - side-menu : container
- - side-menu-canteen-list : container
- - side-menu-canteen[] : button[]
- - side-menu-maps : button
- - side-menu-visible : boolean
- - top-bar : container
- - hamburger-menu : button
- - hamburger-menu-icon : image
-
- - weekday-button[] : button[]
- - weekday-menu : container
- - meal-list : container
- - meal-item[] : button[]
- - meal-details : image
- - diet-hint-icon[] : image[]
- - landing-page : image
-
- + call-maps()
- + gen-meal-details()
- + gen-meal-items(weekday: Integer, mensa-id: Integer) : button[]
- + refresh-frame() : void
+Title "OCP Gahlia Heiarchy for React"
+class	home {
+ - hook1: "side menu"
+ - hook2: "landing"
 }
-class	scrapercache {
+class	landing {
+ - background: image
+}
+class	"side menu" {
+ - hook: canteens
+}
+class	canteenlist {
+ - hooks[]: canteen[]
+}
+class 	canteen {
+ - hook1: weekdays
+ - hook2: meallist
+}
+class	weekdays {
+ - hooks[]: day[]
+}
+class	day {
+ + gen-meal-items(weekday: Integer, mensa-id: Integer): meallist
+}
+class   meallist{
+ - hooks[] : meal[]
+}
+class 	meal {
+ - hook: details
+ + gen-meal-details(self): details
+}
+class 	details {
+ - details: image
+}
+class	maps {
+ - hooks[]: marker[]
+ - hook: route
+}
+class	marker {
+ - mensa-locations[]: Float, Float
+}
+class	route {}
+home o.. landing
+home o.. "side menu"
+"side menu" o.. canteenlist
+canteenlist *.. canteen
+canteen *.. meallist
+canteen *.. weekdays
+weekdays *.. day
+meallist *.. meal
+meal *.. details
+"side menu" o.. maps
+maps *.. marker
+maps *.. route
+home .. scrapercache
+day .. meallist
+class   scrapercache {
   - mensa-urls[] : String[]
   - dirtbag : struct
   - parsed : struct
@@ -36,24 +66,5 @@ class	scrapercache {
   - write-cache() : boolean
   - pullparse(mensa-id) : void
   + gimme-data(weekday: Integer, mensa-id: Integer) : struct
-
 }
-class	"gmaps driver" {
- - auth-token : String
- - location-id-mensa[] : String[]
- - gmap-api-endpoint : String
-
- + route-to-mensa(id: Integer) : void
- + show-mensa-location(id: Integer) : void
-}
-enum "main mode" {
-  LANDING
-  LIST
-  DETAILS
-  MAPS
-}
-monolith <.. "main mode"
-monolith <.. "gmaps driver"
-monolith <.. scrapercache
 @enduml
-
