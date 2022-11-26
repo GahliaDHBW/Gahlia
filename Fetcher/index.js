@@ -1,8 +1,5 @@
 
 import axios from "axios"
-
-// Make a request for a user with a given ID
-
 axios.get('https://port19x.github.io/mensascrap/master.json')
   .then(function (response) {
     // handle success
@@ -11,7 +8,6 @@ axios.get('https://port19x.github.io/mensascrap/master.json')
     console.table(response.data.body.erzbergerstraße.wednesday);
     console.table(response.data.body.erzbergerstraße.thursday);
     console.table(response.data.body.erzbergerstraße.friday);
-
   })
   .catch(function (error) {
     // handle error
