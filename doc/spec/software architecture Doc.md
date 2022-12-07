@@ -95,7 +95,11 @@ MVC:
 
 - Controller: Falsk controler to control the API accessbility of the server and to refresh Model with the new data
 
+#### it could be displayed by the follwing image 
 
+![image](https://user-images.githubusercontent.com/76824323/206284160-47d1a988-ab9b-49a3-847f-ce29d545ebf9.png)
+
+for more information, please see the Implementation View in point 8
 
 ## 4 Use-Case View
 
